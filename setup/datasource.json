@@ -1,0 +1,26 @@
+{
+  "id": 1, 
+  "orgId": 1, 
+  "name": "PostgreSQL", 
+  "type": "postgres", 
+  "typeLogoUrl": "", 
+  "access": "proxy", 
+  "url": "postgres", 
+  "password": "", 
+  "user": "postgres", 
+  "database": "postgres", 
+  "basicAuth": false, 
+  "basicAuthUser": "", 
+  "basicAuthPassword": "", 
+  "withCredentials": false, 
+  "isDefault":true, 
+  "jsonData": {
+    "postgresVersion": 903, 
+    "sslmode": "disable"
+  }, 
+  "secureJsonFields": {
+    "password": true
+  },
+  "version": 2,
+  "readOnly": false
+}
