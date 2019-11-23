@@ -4,19 +4,19 @@ import psycopg2
 import numpy as np
 from datetime import datetime, timedelta
 
-# generate 10 minutes of data, release a new version at 5 minutes
-TIME = 10 * 60
-RELEASE_AT = 3 * 60
+# generate 20 hours of data, release a new version at 7 hours
+TIME = 20 * 60
+RELEASE_AT = 7 * 60
 
-OLD_VERSION = "1.0.7"
-NEW_VERSION = "1.0.8"
+OLD_VERSION = "4.2.0"
+NEW_VERSION = "4.2.1"
 
 NUM_APPS = 100
 
-P_EMIT = 0.3
-P_SWITCH = 0.1
-P_OLD_200 = 0.9
-P_NEW_200 = 0.4
+P_EMIT = 0.5
+P_SWITCH = 0.05
+P_OLD_200 = 0.95
+P_NEW_200 = 0.5
 
 if __name__ == '__main__':
   conn = psycopg2.connect(user='postgres', password='postgres', host='127.0.0.1', port='5432', database='postgres')
@@ -40,7 +40,7 @@ if __name__ == '__main__':
         versions[app] = NEW_VERSION
 
       if emit_probs[app] <= P_EMIT:
-        timestamp = datetime.now() + timedelta(seconds=t*10)
+        timestamp = datetime.now() - timedelta(minutes=TIME) + timedelta(minutes=t)
         status_code = 200
         if versions[app] == OLD_VERSION and status_probs[app] > P_OLD_200:
           status_code = 500
