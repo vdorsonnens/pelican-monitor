@@ -7,7 +7,7 @@ GRAFANA_HOST = os.getenv('GRAFANA_HOST', 'localhost')
 GRAFANA_URL = 'http://admin:admin@{}:3000/api'.format(GRAFANA_HOST)
 
 DIR = os.path.dirname(__file__)
-DASHBOARD_FILE = os.path.join(DIR, 'dashboard3.json')
+DASHBOARD_FILE = os.path.join(DIR, 'dashboard4.json')
 DATASOURCE_FILE = os.path.join(DIR, 'datasource.json')
 
 if __name__ == '__main__':
